@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import Routes from './routes';
 import { configureStore } from './reduxStore';
-import { requestPushNotification, subscribePushNotification } from './PushNotification';
+import { requestPushNotification, subscribePushNotification, saveSubscriptionToLocalStorage } from './PushNotification';
 import { paths } from './constants';
 import '../styles/style.scss';
 
@@ -19,6 +19,7 @@ const registerServiceWorker = () => {
     navigator.serviceWorker.register(`${paths.baseUrl}sw.js`).then((sw) => {
       requestPushNotification();
       subscribePushNotification(sw);
+      saveSubscriptionToLocalStorage(sw);
     });
   }
 };

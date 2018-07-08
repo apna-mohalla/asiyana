@@ -15,6 +15,12 @@ function urlB64ToUint8Array(base64String) {
   return outputArray;
 }
 
+export function saveSubscriptionToLocalStorage(sw) {
+  sw.pushManager.getSubscription().then((subscription) => {
+    localStorage.setItem('pushNotification', JSON.stringify(subscription));
+  });
+}
+
 export function subscribePushNotification(swRegistration) {
   swRegistration.pushManager.subscribe({
     userVisibleOnly: true,
@@ -22,7 +28,6 @@ export function subscribePushNotification(swRegistration) {
   }).then((subscription) => {
     // here goes what we want to do with subscription.
     /* eslint no-console: 1 */
-    localStorage.setItem('pushNotification', JSON.stringify(subscription));
     console.log('subscription', subscription);
   });
 }
