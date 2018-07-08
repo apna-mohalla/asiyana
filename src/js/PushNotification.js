@@ -22,7 +22,7 @@ export function subscribePushNotification(swRegistration) {
   }).then((subscription) => {
     // here goes what we want to do with subscription.
     /* eslint no-console: 1 */
-    localStorage.setItem('pushNotification', subscription);
+    localStorage.setItem('pushNotification', JSON.stringify(subscription));
     console.log('subscription', subscription);
   });
 }
