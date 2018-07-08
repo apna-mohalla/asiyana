@@ -44,6 +44,7 @@ const config = {
     new webpack.SourceMapDevToolPlugin(),
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, 'src/icon-fonts'), to: path.resolve(__dirname, 'build/icon-fonts') },
+      { from: path.resolve(__dirname, 'src/js/sw.js'), to: path.resolve(__dirname, 'build') },
     ]),
   ],
 };
