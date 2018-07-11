@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import AuthenticationHeader from './AuthenticationHeader';
+import Dashboard from './Dashboard';
 import { labels, placeholder, paths } from '../constants';
 import { authenticateUser } from '../actions/signIn';
 
@@ -31,17 +32,15 @@ class SignIn extends Component {
   }
 
   signInButtonClicked() {
-    const { dispatch } = this.props;
-    dispatch(authenticateUser(this.state));
+    /* eslint react/destructuring-assignment: 0 */
+    this.props.authenticateUser(this.state);
   }
 
   render() {
     const { signIn } = this.props;
     if (signIn.authenticate) {
       return (
-        <div>
-          You are signed in
-        </div>
+        <Dashboard />
       );
     }
     return (
@@ -72,7 +71,7 @@ class SignIn extends Component {
 }
 
 SignIn.propTypes = {
-  dispatch: PropTypes.object,
+  authenticateUser: PropTypes.object,
   signIn: PropTypes.object,
 };
 

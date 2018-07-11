@@ -1,68 +1,7 @@
 @import './variable';
 @import './icon-fonts';
-@import './_authentication';
 
-* {
-  box-sizing: border-box;
-}
+@import './global';
 
-html,
-body {
-  background: $body-background;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-  height: 100%;
-  line-height: 1.75em;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: $primary-color;
-}
-
-.bottom-spacer {
-  margin-bottom: $app-spacer;
-}
-
-.title {
-  border-bottom: $primary-color solid 1px;
-  color: $primary-color;
-  text-align: left;
-  width: 100%;
-}
-
-.main {
-  display: flex;
-  height: 100%;
-}
-
-input[type='text'],
-input[type='tel'],
-input[type='password'],
-input[type='email'] {
-  background-color: transparent;
-  border: 0;
-  border-bottom: $primary-color solid 1px;
-  font-size: 1em;
-  margin-bottom: $app-spacer;
-  outline: 0;
-  padding: 10px 0 0;
-  width: 100%;
-}
-
-.button {
-  border-radius: 20px;
-  font-size: 1em;
-  padding: 10px 50px;
-
-  &.primary {
-    background-color: $primary-color;
-    color: $white;
-  }
-}
-
-.small-font {
-  color: $muted-text;
-  font-size: .8em;
-}
+@import './authentication';
+@import './dashboard';

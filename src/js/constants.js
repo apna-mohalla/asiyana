@@ -1,4 +1,5 @@
 const baseUrl = window.location.hostname === 'apna-mohalla.github.io' ? '/asiyana/' : '/';
+const apiUrl = baseUrl;
 export const paths = {
   baseUrl,
   homePath: baseUrl,
@@ -24,4 +25,8 @@ export const placeholder = {
   password: 'PASSWORD',
   name: 'NAME',
   telephone: 'PHONE NUMBER',
+};
+
+export const apiPath = {
+  authenticate: `${apiUrl}authenticate`,
 };
