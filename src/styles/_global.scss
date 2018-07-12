@@ -14,11 +14,6 @@ body {
   padding: 0;
 }
 
-.main {
-  display: flex;
-  height: 100%;
-}
-
 a {
   color: $primary-color;
 }
@@ -44,6 +39,10 @@ a {
     background-color: $primary-color;
     color: $white;
   }
+}
+
+.error {
+  color: $error-color;
 }
 
 input {

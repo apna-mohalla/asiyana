@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-const Dashboard = () => (
-  <div>Welcome to Dashboard</div>
-);
+import { logout } from '../actions/signIn';
+import { labels } from '../constants';
 
-export default Dashboard;
+function mapStateToProps() {
+  return {};
+}
+
+function dispatchActionToProps(dispatch) {
+  return {
+    logout: bindActionCreators(logout, dispatch),
+  };
+}
+
+class Dashboard extends Component {
+  constructor() {
+    super();
+    this.signout = this.signout.bind(this);
+  }
+
+  signout() {
+    this.props.logout();
+  }
+
+  render() {
+    return (
+      <div className="dashboard-container">
+        Welcome to Dashboard
+        <input type="button" value={labels.signOut} className="button primary" onClick={this.signout} />
+      </div>
+    );
+  }
+}
+
+Dashboard.propTypes = {
+  logout: PropTypes.object,
+};
+
+export default connect(mapStateToProps, dispatchActionToProps)(Dashboard);

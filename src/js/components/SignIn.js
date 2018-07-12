@@ -25,7 +25,7 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      emailAddress: '',
+      userid: '',
       password: '',
     };
     this.signInButtonClicked = this.signInButtonClicked.bind(this);
@@ -36,8 +36,8 @@ class SignIn extends Component {
   }
 
   render() {
-    const { signIn } = this.props;
-    if (signIn.authenticate) {
+    const { isLoggedIn, message } = this.props.signIn;
+    if (isLoggedIn) {
       return (
         <Dashboard />
       );
@@ -50,7 +50,8 @@ class SignIn extends Component {
             <h1 className="title">
               {labels.signIn}
             </h1>
-            <input type="email" placeholder={placeholder.email} required onChange={e => this.setState({ emailAddress: e.target.value })} />
+            <div className="error">{message}</div>
+            <input type="email" placeholder={placeholder.email} required onChange={e => this.setState({ userid: e.target.value })} />
             <input type="password" placeholder={placeholder.password} required onChange={e => this.setState({ password: e.target.value })} />
             <input type="button" value={labels.signIn} className="button primary" onClick={this.signInButtonClicked} />
           </div>

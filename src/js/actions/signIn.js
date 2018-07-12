@@ -2,19 +2,29 @@ import axios from 'axios';
 import * as actionTypes from '../utils/actionTypes';
 import { apiPath } from '../constants';
 
-/* eslint no-unused-vars: 1 */
-export function updateSuccessfulLogin(res) {
+export function updateLogin(res) {
+  if (res.userid) {
+    return {
+      type: actionTypes.SIGNINSUCCESS,
+      payload: res,
+    };
+  }
   return {
-    type: actionTypes.AUTHENTICATEUSER,
-    payload: true,
+    type: actionTypes.SIGNINFAILURE,
   };
 }
 
-export function authenticateUser({ emailAddress, password }) {
+export function logout() {
+  return {
+    type: actionTypes.LOGOUT,
+  };
+}
+
+export function authenticateUser({ userid, password }) {
   return dispatch => axios.post(apiPath.authenticate, {
-    username: emailAddress,
+    userid,
     password,
-  }).then(res => dispatch(updateSuccessfulLogin(res)))
+  }).then(res => dispatch(updateLogin(res)))
     .catch((err) => {
       console.log('some error in authenticatiing', err);
     });
