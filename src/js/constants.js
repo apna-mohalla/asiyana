@@ -1,5 +1,6 @@
 const baseUrl = window.location.hostname === 'apna-mohalla.github.io' ? '/asiyana/' : '/';
 const apiUrl = 'http://localhost:5000/';
+
 export const paths = {
   baseUrl,
   homePath: baseUrl,
@@ -9,26 +10,33 @@ export const paths = {
 };
 
 export const labels = {
-  home: 'Home',
-  signIn: 'Sign In',
-  signUp: 'Sign Up',
-  signOut: 'Sign Out',
-  forgotPassword: 'Forgot Password',
-  bannerText: 'Apna Mohalla',
-  newToMohalla: 'New to mohalla',
-  mohallaDweller: 'Already a mohalla dweller',
-  retrievePassword: 'Retrieve Password',
   backToLogin: 'Back to login page',
+  bannerText: 'Apna Mohalla',
+  forgotPassword: 'Forgot Password',
+  home: 'Home',
   loginFailure: 'Either username or password is wrong',
+  mohallaDweller: 'Already a mohalla dweller',
+  newToMohalla: 'New to mohalla',
+  retrievePassword: 'Retrieve Password',
+  signIn: 'Sign In',
+  signOut: 'Sign Out',
+  signUp: 'Sign Up',
+  someFieldsAreIncorrect: 'Some fields are incorrect. Please correct and try again',
 };
 
 export const placeholder = {
+  apartmentKey: 'APARTMENT KEY',
+  blockName: 'BLOCK NAME',
+  confirmPassword: 'CONFIRM PASSWORD',
   email: 'EMAIL ADDRESS',
-  password: 'PASSWORD',
+  flatNumber: 'FLAT NUMBER',
   name: 'NAME',
+  password: 'PASSWORD',
+  phone: 'PHONE NUMBER',
   telephone: 'PHONE NUMBER',
 };
 
 export const apiPath = {
   authenticate: `${apiUrl}authenticate`,
+  signUp: `${apiUrl}signUp`,
 };
