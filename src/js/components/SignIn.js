@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
+import { authenticateUser } from '../actions/signIn';
+import { labels, placeholder, paths } from '../constants';
 import AuthenticationHeader from './AuthenticationHeader';
 import Dashboard from './Dashboard';
-import { labels, placeholder, paths } from '../constants';
-import { authenticateUser } from '../actions/signIn';
 
 function mapStateToProps(state) {
   return {
@@ -27,8 +28,8 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userid: '',
       password: '',
+      userid: '',
     };
     this.signInButtonClicked = this.signInButtonClicked.bind(this);
   }
