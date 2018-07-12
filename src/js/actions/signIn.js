@@ -16,7 +16,6 @@ export function authenticateUser({ emailAddress, password }) {
     password,
   }).then(res => dispatch(updateSuccessfulLogin(res)))
     .catch((err) => {
-      /* eslint no-console: 1 */
       console.log('some error in authenticatiing', err);
     });
 }

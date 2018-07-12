@@ -11,7 +11,6 @@
 
 /* eslint no-restricted-globals: 2 */
 self.addEventListener('push', (event) => {
-  /* eslint no-console: 1 */
   console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
   const title = 'Apna Mohalla';
   const options = {

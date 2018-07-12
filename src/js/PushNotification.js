@@ -27,14 +27,12 @@ export function subscribePushNotification(swRegistration) {
     applicationServerKey: urlB64ToUint8Array(pushNotificationPublicKey),
   }).then((subscription) => {
     // here goes what we want to do with subscription.
-    /* eslint no-console: 1 */
     console.log('subscription', subscription);
   });
 }
 
 export function requestPushNotification() {
   Notification.requestPermission((status) => {
-    /* eslint no-console: 1 */
     console.log('Notification permission status:', status);
   });
 }
@@ -43,10 +41,8 @@ export function showPushNotification(notification) {
   if (Notification.permission === 'granted') {
     navigator.serviceWorker.getRegistration().then(reg => reg.showNotification(notification));
   } else if (Notification.permission === 'blocked') {
-    /* eslint no-console: 1 */
     console.log('User has not given permission to push notification. Reload the page');
   } else {
-    /* eslint no-console: 1 */
     console.log('Push notification is not supported');
   }
 }
