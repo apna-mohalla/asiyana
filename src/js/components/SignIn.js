@@ -31,7 +31,8 @@ class SignIn extends Component {
     this.signInButtonClicked = this.signInButtonClicked.bind(this);
   }
 
-  signInButtonClicked() {
+  signInButtonClicked(e) {
+    e.stopPropagation();
     this.props.authenticateUser(this.state);
   }
 
@@ -46,15 +47,13 @@ class SignIn extends Component {
       <article className="authentication-container">
         <AuthenticationHeader />
         <section className="authentication-form-container">
-          <div className="authentication-form form">
-            <h1 className="title">
-              {labels.signIn}
-            </h1>
+          <form className="authentication-form form" onSubmit={e => this.signInButtonClicked(e)}>
+            <h1 className="title">{labels.signIn}</h1>
             <div className="error">{message}</div>
             <input type="email" placeholder={placeholder.email} required onChange={e => this.setState({ userid: e.target.value })} />
             <input type="password" placeholder={placeholder.password} required onChange={e => this.setState({ password: e.target.value })} />
-            <input type="button" value={labels.signIn} className="button primary" onClick={this.signInButtonClicked} />
-          </div>
+            <input type="submit" value={labels.signIn} className="button primary" />
+          </form>
           <Link to={paths.forgotPasswordPath}>{labels.forgotPassword}</Link>
           <label className="small-font">{labels.newToMohalla}</label>
           <Link to={paths.signUpPath}>
