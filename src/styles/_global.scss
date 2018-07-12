@@ -44,20 +44,3 @@ a {
 .error {
   color: $error-color;
 }
-
-input {
-  // sass-lint:disable no-attribute-selectors
-  &[type='text'],
-  &[type='tel'],
-  &[type='password'],
-  &[type='email'] {
-    background-color: transparent;
-    border: 0;
-    border-bottom: $primary-color solid 1px;
-    font-size: 1em;
-    margin-bottom: $app-spacer;
-    outline: 0;
-    padding: 10px 0 0;
-    width: 100%;
-  }
-}

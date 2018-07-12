@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import AuthenticationHeader from './AuthenticationHeader';
 import Dashboard from './Dashboard';
@@ -50,9 +52,27 @@ class SignIn extends Component {
           <form className="authentication-form form" onSubmit={e => this.signInButtonClicked(e)}>
             <h1 className="title">{labels.signIn}</h1>
             <div className="error">{message}</div>
-            <input type="email" placeholder={placeholder.email} required onChange={e => this.setState({ userid: e.target.value })} />
-            <input type="password" placeholder={placeholder.password} required onChange={e => this.setState({ password: e.target.value })} />
-            <input type="submit" value={labels.signIn} className="button primary" />
+            <TextField
+              type="email"
+              id="email"
+              required
+              fullWidth
+              label={placeholder.email}
+              className="input-field"
+              value={this.state.userid}
+              onChange={e => this.setState({ userid: e.target.value })}
+            />
+            <TextField
+              type="password"
+              id="password"
+              required
+              fullWidth
+              label={placeholder.password}
+              className="input-field"
+              value={this.state.password}
+              onChange={e => this.setState({ password: e.target.value })}
+            />
+            <Button type="submit" color="primary" variant="contained" className="topSpacer">{labels.signIn}</Button>
           </form>
           <Link to={paths.forgotPasswordPath}>{labels.forgotPassword}</Link>
           <label className="small-font">{labels.newToMohalla}</label>

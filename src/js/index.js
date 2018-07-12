@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
@@ -7,6 +8,7 @@ import Routes from './routes';
 import { configureStore } from './reduxStore';
 import { requestPushNotification, subscribePushNotification, saveSubscriptionToLocalStorage } from './PushNotification';
 import { paths } from './constants';
+import theme from './material-theme';
 import '../styles/style.scss';
 
 const store = configureStore();
@@ -29,7 +31,9 @@ function renderDom() {
   ReactDOM.render(
     <Provider store={store}>
       <HashRouter>
-        <Routes />
+        <MuiThemeProvider theme={theme}>
+          <Routes />
+        </MuiThemeProvider>
       </HashRouter>
     </Provider>,
     document.getElementById('main'),

@@ -37,3 +37,7 @@ $authentication-header-height: 180px;
   text-align: center;
   width: 100%;
 }
+
+.authentication-form .topSpacer {
+  margin-top: $app-spacer;
+}
