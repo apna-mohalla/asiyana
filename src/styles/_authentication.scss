@@ -24,7 +24,6 @@ $authentication-header-height: 180px;
 
 .authentication-form-container {
   align-items: center;
-  align-items: center;
   display: flex;
   flex-direction: column;
   height: calc(100% - $authentication-header-height);
@@ -33,6 +32,7 @@ $authentication-header-height: 180px;
 }
 
 .authentication-form {
+  margin-bottom: $app-spacer;
   max-width: 440px;
   text-align: center;
   width: 100%;

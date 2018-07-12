@@ -55,7 +55,7 @@ class SignIn extends Component {
             <input type="password" placeholder={placeholder.password} required onChange={e => this.setState({ password: e.target.value })} />
             <input type="button" value={labels.signIn} className="button primary" onClick={this.signInButtonClicked} />
           </div>
-          <Link to={paths.forgotPasswordPath} className="bottom-spacer">
+          <Link to={paths.forgotPasswordPath}>
             {labels.forgotPassword}
           </Link>
           <label className="small-font">
