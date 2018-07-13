@@ -46,7 +46,7 @@ const config = {
       { from: path.resolve(__dirname, 'src/icon-fonts'), to: path.resolve(__dirname, 'build/icon-fonts') },
       { from: path.resolve(__dirname, 'src/favicon'), to: path.resolve(__dirname, 'build/favicon') },
       { from: path.resolve(__dirname, 'src/js/sw.js'), to: path.resolve(__dirname, 'build') },
-      { from: path.resolve(__dirname, 'manifest.json'), to: path.resolve(__dirname) },
+      { from: path.resolve(__dirname, 'manifest.json'), to: path.resolve(__dirname, 'build') },
     ]),
   ],
 };
