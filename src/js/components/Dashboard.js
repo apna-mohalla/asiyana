@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import DashboardHeader from './DashboardHeader';
 import { logout } from '../actions/signIn';
 import { labels } from '../constants';
 
@@ -29,7 +30,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard-container">
-        Welcome to Dashboard
+        <DashboardHeader />
         <input type="button" value={labels.signOut} className="button primary" onClick={this.signout} />
       </div>
     );

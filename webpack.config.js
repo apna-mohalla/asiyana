@@ -28,7 +28,7 @@ const config = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index-[hash].js',
+    filename: 'index.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -38,13 +38,15 @@ const config = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: DEBUG ? '[name].css' : '[name].[hash].css',
-      chunkFilename: DEBUG ? '[id].css' : '[id].[hash].css',
+      filename: DEBUG ? '[name].css' : '[name].css',
+      chunkFilename: DEBUG ? '[id].css' : '[id].css',
     }),
     new webpack.SourceMapDevToolPlugin(),
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, 'src/icon-fonts'), to: path.resolve(__dirname, 'build/icon-fonts') },
+      { from: path.resolve(__dirname, 'src/favicon'), to: path.resolve(__dirname, 'build/favicon') },
       { from: path.resolve(__dirname, 'src/js/sw.js'), to: path.resolve(__dirname, 'build') },
+      { from: path.resolve(__dirname, 'manifest.json'), to: path.resolve(__dirname) },
     ]),
   ],
 };
