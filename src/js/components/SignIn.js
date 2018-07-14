@@ -87,7 +87,7 @@ class SignIn extends Component {
 }
 
 SignIn.propTypes = {
-  authenticateUser: PropTypes.object,
+  authenticateUser: PropTypes.func,
   signIn: PropTypes.object,
 };
 
