@@ -16,7 +16,6 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 1,
     "react/destructuring-assignment": 0,
-    "react/jsx-one-expression-per-line": 0,
     "react/sort-comp": 0,
     "jsx-quotes": [
       2,

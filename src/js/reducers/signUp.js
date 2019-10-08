@@ -11,9 +11,9 @@ const initialState = {
 export default function signUp(state = initialState, action) {
   switch (action.type) {
     case actionTypes.SIGNUPSUCCESS:
-      return Object.assign({}, state, action.payload);
+      return { ...state, ...action.payload };
     case actionTypes.SIGNUPRESET:
     default:
-      return Object.assign({}, state, initialState);
+      return { ...state, ...initialState };
   }
 }

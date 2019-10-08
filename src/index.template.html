@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Apna mohalla</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Apna mohalla</title>
 
-  <link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="./manifest.json" />
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
-<body>
-  <div id="main" class="main"></div>
-</body>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  </head>
+  <body>
+    <div id="main" class="main"></div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-firestore.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: 'AIzaSyAXseZvKK4LXCojAkXQ60QQdfWhzcBQ8cU',
+        authDomain: 'testingfirebase-9c249.firebaseapp.com',
+        databaseURL: 'https://testingfirebase-9c249.firebaseio.com',
+        projectId: 'testingfirebase-9c249',
+        storageBucket: 'testingfirebase-9c249.appspot.com',
+        messagingSenderId: '770352582957',
+        appId: '1:770352582957:web:ae01a801260810470003a4',
+      };
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    </script>
+  </body>
 </html>

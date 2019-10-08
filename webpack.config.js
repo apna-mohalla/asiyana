@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -12,19 +12,18 @@ const config = {
   entry: path.resolve(__dirname, 'src/js/index.js'),
   mode: DEBUG ? 'development' : 'production',
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-    }, {
-      test: /\.scss$/,
-      exclude: /node_modules/,
-      use: [
-        DEBUG ? 'style-loader' : MiniCssExtractPlugin.loader,
-        'css-loader',
-        'sass-loader',
-      ],
-    }],
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [DEBUG ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -34,7 +33,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.template.html'),
     }),
-    new CleanWebpackPlugin([path.resolve(__dirname, 'build')]),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional

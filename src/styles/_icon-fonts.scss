@@ -6,10 +6,10 @@ $base-font-url: '/asiyana/';
   font-family: 'icomoon';
   font-style: normal;
   font-weight: normal;
-  src:  url($base-font-url + 'icon-fonts/icomoon.eot?nnl3h5#iefix') format('embedded-opentype'),
-  url($base-font-url + 'icon-fonts/icomoon.ttf?nnl3h5') format('truetype'),
-  url($base-font-url + 'icon-fonts/icomoon.woff?nnl3h5') format('woff'),
-  url($base-font-url + 'icon-fonts/icomoon.svg?nnl3h5#icomoon') format('svg');
+  src: url($base-font-url+'icon-fonts/icomoon.eot?nnl3h5#iefix') format('embedded-opentype'),
+    url($base-font-url+'icon-fonts/icomoon.ttf?nnl3h5') format('truetype'),
+    url($base-font-url+'icon-fonts/icomoon.woff?nnl3h5') format('woff'),
+    url($base-font-url+'icon-fonts/icomoon.svg?nnl3h5#icomoon') format('svg');
 }
 
 // sass-lint:disable no-attribute-selectors

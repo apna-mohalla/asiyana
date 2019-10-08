@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { apiPath } from '../constants';
 import * as actionTypes from '../utils/actionTypes';
 
 export function signUpsuccess(res) {
@@ -15,27 +13,10 @@ export function resetSignUpData() {
   };
 }
 
-export function postSignUpData({
-  name,
-  email,
-  password,
-  apartmentKey,
-  blockName,
-  flatNumber,
-  phonenumber,
-}) {
-  return dispatch => axios.post(apiPath.signUp, {
-    name,
-    email,
-    userid: email,
-    password,
-    apartmentKey,
-    blockName,
-    flatNumber,
-    phonenumber,
-  }).then((res) => {
-    dispatch(signUpsuccess(res));
-  }).catch((err) => {
-    console.log('some error occured while sign up. please try again', err);
-  });
+/* eslint no-unused-vars: 0 */
+/* eslint object-curly-newline: 0 */
+/* eslint implicit-arrow-linebreak: 0 */
+export function postSignUpData({ name, email, password, apartmentKey, blockName, flatNumber, phonenumber }) {
+  return (dispatch) =>
+    auth.createUserWithEmailAndPassword(email, password).then((cred) => dispatch(signUpsuccess(cred.user)));
 }

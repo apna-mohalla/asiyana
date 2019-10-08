@@ -1,4 +1,4 @@
-const version = 123;
+const version = 1;
 // Use this function if we require to add functionality.
 // self.addEventListener('notificationclose', (e) => {
 //   // const { notification } = e;
@@ -24,28 +24,20 @@ self.addEventListener('push', (event) => {
 self.addEventListener('install', (event) => {
   console.log('SW installed ', version, ' -> ', new Date().toLocaleString());
   self.skipWaiting();
-  event.waitUntil(
-    caches.open(version)
-      .then(cache => cache.addAll([
-        'index.html',
-        'index.js',
-        'main.css',
-      ])),
-  );
+  event.waitUntil(caches.open(version).then((cache) => cache.addAll(['index.html', 'index.js', 'main.css'])));
 });
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then((res) => {
-        if (res) {
-          return res;
-        }
-        if (!navigator.onLine) {
-          return caches.match(new Request('index.html'));
-        }
-        // The below line is buggy. The fetch header needs to be cleared after a request is done.
-        return fetch(event.request);
-      }),
+    caches.match(event.request).then((res) => {
+      if (res) {
+        return res;
+      }
+      if (!navigator.onLine) {
+        return caches.match(new Request('index.html'));
+      }
+      // The below line is buggy. The fetch header needs to be cleared after a request is done.
+      return fetch(event.request);
+    }),
   );
 });

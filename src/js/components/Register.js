@@ -58,7 +58,7 @@ class Register extends Component {
     if (password !== confirmPassword) {
       this.setState({ isPasswordMismatch: true, message: labels.someFieldsAreIncorrect });
     }
-    if ((password === confirmPassword) && phone.length >= 10) {
+    if (password === confirmPassword && phone.length >= 10) {
       this.setState({ isPhoneInValid: false, isPasswordMismatch: false, message: '' });
       this.props.postSignUpData(this.state);
     }
@@ -70,22 +70,18 @@ class Register extends Component {
       <article className="authentication-container">
         <AuthenticationHeader />
         <section className="authentication-form-container">
-          <form className="authentication-form form" onSubmit={e => this.register(e)}>
-            <h1 className="title">
-              {labels.signUp}
-            </h1>
+          <form className="authentication-form form" onSubmit={(e) => this.register(e)}>
+            <h1 className="title">{labels.signUp}</h1>
             <div className="error">{this.state.message}</div>
             <Paper elevation={1} className={messageClass}>
-              <Typography component="p">
-                {this.props.signUp.message}
-              </Typography>
+              <Typography component="p">{this.props.signUp.message}</Typography>
             </Paper>
             <TextField
               className="input-field"
               fullWidth
               id="name"
               label={placeholder.name}
-              onChange={e => this.setState({ name: e.target.value })}
+              onChange={(e) => this.setState({ name: e.target.value })}
               required
               type="text"
               value={this.state.name}
@@ -96,7 +92,7 @@ class Register extends Component {
               fullWidth
               id="phone"
               label={placeholder.phone}
-              onChange={e => this.setState({ phone: e.target.value, isPhoneInValid: false })}
+              onChange={(e) => this.setState({ phone: e.target.value, isPhoneInValid: false })}
               pattern="[(0-9){10}]"
               required
               type="number"
@@ -107,7 +103,7 @@ class Register extends Component {
               fullWidth
               id="email"
               label={placeholder.email}
-              onChange={e => this.setState({ email: e.target.value })}
+              onChange={(e) => this.setState({ email: e.target.value })}
               required
               type="email"
               value={this.state.email}
@@ -118,7 +114,7 @@ class Register extends Component {
               fullWidth
               id="password"
               label={placeholder.password}
-              onChange={e => this.setState({ password: e.target.value, isPasswordMismatch: false })}
+              onChange={(e) => this.setState({ password: e.target.value, isPasswordMismatch: false })}
               required
               type="password"
               value={this.state.password}
@@ -129,7 +125,7 @@ class Register extends Component {
               fullWidth
               id="confirmPassword"
               label={placeholder.confirmPassword}
-              onChange={e => this.setState({ confirmPassword: e.target.value, isPasswordMismatch: false })}
+              onChange={(e) => this.setState({ confirmPassword: e.target.value, isPasswordMismatch: false })}
               required
               type="password"
               value={this.state.confirmPassword}
@@ -139,7 +135,7 @@ class Register extends Component {
               fullWidth
               id="apartmentKey"
               label={placeholder.apartmentKey}
-              onChange={e => this.setState({ apartmentKey: e.target.value })}
+              onChange={(e) => this.setState({ apartmentKey: e.target.value })}
               required
               type="text"
               value={this.state.apartmentKey}
@@ -149,7 +145,7 @@ class Register extends Component {
               fullWidth
               id="blockName"
               label={placeholder.blockName}
-              onChange={e => this.setState({ blockName: e.target.value })}
+              onChange={(e) => this.setState({ blockName: e.target.value })}
               required
               type="text"
               value={this.state.blockName}
@@ -159,14 +155,18 @@ class Register extends Component {
               fullWidth
               id="flatNumber"
               label={placeholder.flatNumber}
-              onChange={e => this.setState({ flatNumber: e.target.value })}
+              onChange={(e) => this.setState({ flatNumber: e.target.value })}
               required
               type="text"
               value={this.state.flatNumber}
             />
-            <Button type="submit" color="primary" variant="contained" className="topSpacer">{labels.signUp}</Button>
+            <Button type="submit" color="primary" variant="contained" className="topSpacer">
+              {labels.signUp}
+            </Button>
           </form>
-          <label className="small-font">{labels.mohallaDweller}</label>
+          <label className="small-font" htmlFor="dummy-label">
+            {labels.mohallaDweller}
+          </label>
           <Link to={paths.signInPath}>{labels.signIn}</Link>
         </section>
       </article>
@@ -180,4 +180,7 @@ Register.propTypes = {
   resetSignUpData: PropTypes.object,
 };
 
-export default connect(mapStateToProps, dispatchActionToProps)(Register);
+export default connect(
+  mapStateToProps,
+  dispatchActionToProps,
+)(Register);

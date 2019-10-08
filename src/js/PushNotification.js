@@ -2,9 +2,7 @@ const pushNotificationPublicKey = 'BBMLkY9uGZhFnU7S_UyTweHVaYNJbR70EMFc9iXnDhLA1
 
 function urlB64ToUint8Array(base64String) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
-  const base64 = (base64String + padding)
-    .replace(/-/g, '+')
-    .replace(/_/g, '/');
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
 
   const rawData = window.atob(base64);
   const outputArray = new Uint8Array(rawData.length);
@@ -22,13 +20,15 @@ export function saveSubscriptionToLocalStorage(sw) {
 }
 
 export function subscribePushNotification(swRegistration) {
-  swRegistration.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: urlB64ToUint8Array(pushNotificationPublicKey),
-  }).then((subscription) => {
-    // here goes what we want to do with subscription.
-    console.log('subscription', subscription);
-  });
+  swRegistration.pushManager
+    .subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlB64ToUint8Array(pushNotificationPublicKey),
+    })
+    .then((subscription) => {
+      // here goes what we want to do with subscription.
+      console.log('subscription', subscription);
+    });
 }
 
 export function requestPushNotification() {
@@ -39,7 +39,7 @@ export function requestPushNotification() {
 
 export function showPushNotification(notification) {
   if (Notification.permission === 'granted') {
-    navigator.serviceWorker.getRegistration().then(reg => reg.showNotification(notification));
+    navigator.serviceWorker.getRegistration().then((reg) => reg.showNotification(notification));
   } else if (Notification.permission === 'blocked') {
     console.log('User has not given permission to push notification. Reload the page');
   } else {

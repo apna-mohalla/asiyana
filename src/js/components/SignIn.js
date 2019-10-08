@@ -42,15 +42,13 @@ class SignIn extends Component {
   render() {
     const { isLoggedIn, message } = this.props.signIn;
     if (isLoggedIn) {
-      return (
-        <Dashboard />
-      );
+      return <Dashboard />;
     }
     return (
       <article className="authentication-container">
         <AuthenticationHeader />
         <section className="authentication-form-container">
-          <form className="authentication-form form" onSubmit={e => this.signInButtonClicked(e)}>
+          <form className="authentication-form form" onSubmit={(e) => this.signInButtonClicked(e)}>
             <h1 className="title">{labels.signIn}</h1>
             <div className="error">{message}</div>
             <TextField
@@ -61,7 +59,7 @@ class SignIn extends Component {
               label={placeholder.email}
               className="input-field"
               value={this.state.userid}
-              onChange={e => this.setState({ userid: e.target.value })}
+              onChange={(e) => this.setState({ userid: e.target.value })}
             />
             <TextField
               type="password"
@@ -71,15 +69,17 @@ class SignIn extends Component {
               label={placeholder.password}
               className="input-field"
               value={this.state.password}
-              onChange={e => this.setState({ password: e.target.value })}
+              onChange={(e) => this.setState({ password: e.target.value })}
             />
-            <Button type="submit" color="primary" variant="contained" className="topSpacer">{labels.signIn}</Button>
+            <Button type="submit" color="primary" variant="contained" className="topSpacer">
+              {labels.signIn}
+            </Button>
           </form>
           <Link to={paths.forgotPasswordPath}>{labels.forgotPassword}</Link>
-          <label className="small-font">{labels.newToMohalla}</label>
-          <Link to={paths.signUpPath}>
-            {labels.signUp}
-          </Link>
+          <label className="small-font" htmlFor="dummy-label">
+            {labels.newToMohalla}
+          </label>
+          <Link to={paths.signUpPath}>{labels.signUp}</Link>
         </section>
       </article>
     );
@@ -91,4 +91,7 @@ SignIn.propTypes = {
   signIn: PropTypes.object,
 };
 
-export default connect(mapStateToProps, dispatchActionToProps)(SignIn);
+export default connect(
+  mapStateToProps,
+  dispatchActionToProps,
+)(SignIn);

@@ -1,18 +1,4 @@
-import axios from 'axios';
 import * as actionTypes from '../utils/actionTypes';
-import { apiPath } from '../constants';
-
-export function updateLogin(res) {
-  if (res.userid) {
-    return {
-      type: actionTypes.SIGNINSUCCESS,
-      payload: res,
-    };
-  }
-  return {
-    type: actionTypes.SIGNINFAILURE,
-  };
-}
 
 export function logout() {
   return {
@@ -20,12 +6,23 @@ export function logout() {
   };
 }
 
+const loginsuccess = (res) => ({
+  type: actionTypes.SIGNINSUCCESS,
+  payload: res,
+});
+
+const loginfailure = (res) => ({
+  type: actionTypes.SIGNINFAILURE,
+  payload: res,
+});
+
 export function authenticateUser({ userid, password }) {
-  return dispatch => axios.post(apiPath.authenticate, {
-    userid,
-    password,
-  }).then(res => dispatch(updateLogin(res)))
+  return (dispatch) => auth
+    .signInWithEmailAndPassword(userid, password)
+    .then((res) => {
+      dispatch(loginsuccess(res));
+    })
     .catch((err) => {
-      console.log('some error in authenticatiing', err);
+      dispatch(loginfailure(err));
     });
 }

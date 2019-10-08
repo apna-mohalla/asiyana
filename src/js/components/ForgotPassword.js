@@ -21,15 +21,13 @@ class ForgotPassword extends Component {
         <AuthenticationHeader />
         <section className="authentication-form-container">
           <form className="authentication-form form">
-            <h1 className="title">
-              {labels.forgotPassword}
-            </h1>
+            <h1 className="title">{labels.forgotPassword}</h1>
             <TextField
               className="input-field"
               fullWidth
               id="email"
               label={placeholder.email}
-              onChange={e => this.setState({ email: e.target.value })}
+              onChange={(e) => this.setState({ email: e.target.value })}
               required
               type="text"
               value={this.state.email}
@@ -40,20 +38,20 @@ class ForgotPassword extends Component {
               fullWidth
               id="phone"
               label={placeholder.telephone}
-              onChange={e => this.setState({ phone: e.target.value, isPhoneInValid: false })}
+              onChange={(e) => this.setState({ phone: e.target.value, isPhoneInValid: false })}
               pattern="[(0-9){10}]"
               required
               type="number"
               value={this.state.phone}
             />
-            <Button type="submit" color="primary" variant="contained" className="topSpacer">{labels.retrievePassword}</Button>
+            <Button type="submit" color="primary" variant="contained" className="topSpacer">
+              {labels.retrievePassword}
+            </Button>
           </form>
-          <label className="small-font">
+          <label className="small-font" htmlFor="dummy-label">
             {labels.backToLogin}
           </label>
-          <Link to={paths.signInPath}>
-            {labels.signIn}
-          </Link>
+          <Link to={paths.signInPath}>{labels.signIn}</Link>
         </section>
       </article>
     );
