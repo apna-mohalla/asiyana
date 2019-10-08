@@ -27,6 +27,6 @@ export default function authenticate(state = initialState, action) {
 
     case actionTypes.LOGOUT:
     default:
-      return { ...state, ...initialState };
+      return state;
   }
 }
