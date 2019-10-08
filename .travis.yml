@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "10.15.3"
+  - '10.15.3'
 
 script:
   - node --version
@@ -13,7 +13,7 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GH_TOKEN
+  github-token: $ASIYANA_DEPLOYMENT
   local-dir: build
   keep-history: true
   on:
