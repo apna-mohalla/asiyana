@@ -1,8 +1,0 @@
-export const SIGNINSUCCESS = 'SIGNINSUCCESS';
-export const SIGNINFAILURE = 'SIGNINFAILURE';
-
-export const SIGNUPSUCCESS = 'SIGNINSUCCESS';
-export const SIGNUPFAILURE = 'SIGNUPFAILURE';
-export const SIGNUPRESET = 'SIGNUPRESET';
-
-export const LOGOUT = 'LOGOUT';

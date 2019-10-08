@@ -1,5 +1,5 @@
 import React from 'react';
-import { labels } from '../constants';
+import labels from 'configs/translations';
 
 const AuthenticationHeader = () => (
   <section className="logo-container">

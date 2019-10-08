@@ -1,6 +1,6 @@
-@import './variable';
-
 $authentication-header-height: 180px;
+$banner-background: var(--primary-color);
+$logo-container-text: var(--white);
 
 .authentication-container {
   flex: 1;
@@ -32,12 +32,12 @@ $authentication-header-height: 180px;
 }
 
 .authentication-form {
-  margin-bottom: $app-spacer;
+  margin-bottom: var(--app-spacer);
   max-width: 440px;
   text-align: center;
   width: 100%;
 }
 
 .authentication-form .topSpacer {
-  margin-top: $app-spacer;
+  margin-top: var(--app-spacer);
 }

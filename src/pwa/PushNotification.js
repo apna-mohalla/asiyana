@@ -1,4 +1,5 @@
-const pushNotificationPublicKey = 'BBMLkY9uGZhFnU7S_UyTweHVaYNJbR70EMFc9iXnDhLA1eU7axYbNVWDtJnePLEBwmQncA21uR0LNq7x0r5P154';
+const pushNotificationPublicKey =
+  'BEU7TT-5LqAMDwNX_REn-34GR0k8vAY0G_VsJs1xg7aeTo3DGsCytNBSmJqKoqTgYTBhdLPtKHehEugf7kr01Tg';
 
 function urlB64ToUint8Array(base64String) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4);

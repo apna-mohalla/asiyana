@@ -4,45 +4,50 @@
 }
 
 html,
-body {
-  background: $body-background;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
+body,
+.main {
   height: 100%;
+}
+
+html,
+body {
+  background: var(--body-background);
+  font-family: var(--app-font-family);
+  font-size: var(--app-font-size);
   line-height: 1.75em;
   margin: 0;
   padding: 0;
 }
 
 a {
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 .title {
-  border-bottom: $primary-color solid 1px;
-  color: $primary-color;
+  border-bottom: var(--primary-color) solid 1px;
+  color: var(--primary-color);
   text-align: left;
   width: 100%;
 }
 
 .small-font {
-  color: $muted-text;
-  font-size: .8em;
+  color: var(--muted-text);
+  font-size: 0.8em;
 }
 
 .button {
-  border-radius: 20px;
+  border-radius: var(--button-border-radius);
   font-size: 1em;
   padding: 10px 50px;
 
   &.primary {
-    background-color: $primary-color;
-    color: $white;
+    background-color: var(--primary-color);
+    color: var(--white);
   }
 }
 
 .error {
-  color: $error-color;
+  color: var(--error-color);
 }
 
 div.input-field {

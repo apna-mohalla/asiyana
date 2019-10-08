@@ -11,6 +11,13 @@ const config = {
   devtool: DEBUG ? 'eval-source-map' : false,
   entry: path.resolve(__dirname, 'src/js/index.js'),
   mode: DEBUG ? 'development' : 'production',
+  resolve: {
+    extensions: ['.js', '.json', '.jsx'],
+    alias: {
+      configs: path.resolve(__dirname, 'src/configs'),
+      views: path.resolve(__dirname, 'src/js/views/'),
+    },
+  },
   module: {
     rules: [
       {

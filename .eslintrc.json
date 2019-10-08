@@ -1,13 +1,14 @@
 {
   "extends": "airbnb",
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import"
-  ],
+  "plugins": ["react", "jsx-a11y", "import"],
   "env": {
     "browser": true,
     "node": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": [["configs", "./src/configs"], ["views", "./src/js/views"]]
+    }
   },
   "rules": {
     // The rules for react
@@ -17,12 +18,10 @@
     "react/jsx-one-expression-per-line": 1,
     "react/destructuring-assignment": 0,
     "react/sort-comp": 0,
-    "jsx-quotes": [
-      2,
-      "prefer-double"
-    ],
+    "jsx-quotes": [2, "prefer-double"],
     // General programming
     "import/no-extraneous-dependencies": 2,
+
     "no-plusplus": [
       2,
       {

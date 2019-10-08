@@ -4,3 +4,5 @@ node_modules
 build
 .jshintignore
 .jshintrc
+.DS_Store
+src1/

@@ -1,15 +1,4 @@
-const baseUrl = window.location.hostname === 'apna-mohalla.github.io' ? '/asiyana/' : '/';
-const apiUrl = 'http://localhost:5000/';
-
-export const paths = {
-  baseUrl,
-  homePath: baseUrl,
-  signInPath: `${baseUrl}signIn`,
-  signUpPath: `${baseUrl}signUp`,
-  forgotPasswordPath: `${baseUrl}forgotPassword`,
-};
-
-export const labels = {
+const labels = {
   backToLogin: 'Back to login page',
   bannerText: 'Apna Mohalla',
   forgotPassword: 'Forgot Password',
@@ -36,7 +25,4 @@ export const placeholder = {
   telephone: 'PHONE NUMBER',
 };
 
-export const apiPath = {
-  authenticate: `${apiUrl}authenticate`,
-  signUp: `${apiUrl}signUp`,
-};
+export default labels;
