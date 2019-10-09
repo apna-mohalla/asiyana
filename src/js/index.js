@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 import { configureStore } from './reduxStore';
 
 import theme from '../configs/material-theme';
-import { registerServiceWorker } from '../pwa/registerSW';
-import { addToHomeScreen } from '../pwa/addToHomeScreen';
+// import { registerServiceWorker } from '../pwa/registerSW';
+// import { addToHomeScreen } from '../pwa/addToHomeScreen';
 
 import AppView from './views/AppView/AppViewContainer';
 
@@ -30,8 +30,8 @@ function renderDom() {
 }
 
 function run() {
-  registerServiceWorker();
-  addToHomeScreen();
+  // registerServiceWorker();
+  // addToHomeScreen();
   renderDom();
 }
 
