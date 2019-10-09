@@ -8,12 +8,13 @@
   },
   "main": "index.js",
   "scripts": {
-    "deploy": "NODE_ENV=production webpack --mode production --config webpack.config.js",
+    "deploy": "NODE_ENV=production webpack --mode production --config webpack.config.js && npm run publish-site",
     "lint": "eslint .eslintrc.json src/js/",
     "lint:fix": "eslint .eslintrc.json src/js/ --fix",
     "sass-lint": "sass-lint -c ./.sass-lint.yml -v -q",
     "sass-lint:fix": "sass-lint-auto-fix",
     "serve": "webpack-dev-server --open",
+    "publish-site": "bash deploy.sh",
     "start": "webpack --mode development --config webpack.config.js",
     "validate": "npm ls"
   },
