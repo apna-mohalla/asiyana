@@ -1,4 +1,4 @@
-const labels = {
+export const labels = {
   backToLogin: 'Back to login page',
   bannerText: 'Apna Mohalla',
   forgotPassword: 'Forgot Password',
@@ -24,5 +24,3 @@ export const placeholder = {
   phone: 'PHONE NUMBER',
   telephone: 'PHONE NUMBER',
 };
-
-export default labels;

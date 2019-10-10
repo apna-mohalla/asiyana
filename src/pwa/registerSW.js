@@ -5,6 +5,8 @@ const isServiceWorkerSupported = 'serviceWorker' in navigator;
 const isPushNotificationSupported = 'PushManager' in window;
 
 export const registerServiceWorker = function() {
+  if (window.location.hostname === 'localhost') return;
+  
   if (isServiceWorkerSupported && isPushNotificationSupported) {
     navigator.serviceWorker.register(`${paths.baseUrl}sw.js`).then((sw) => {
       requestPushNotification();

@@ -1,4 +1,5 @@
 export const addToHomeScreen = () => {
+  if (window.location.hostname === 'localhost') return;
   // Add to Homescreen functionality.
   window.addEventListener('beforeinstallprompt', (e) => {
     // beforeinstallprompt Event fired
