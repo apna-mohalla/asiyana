@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { configureStore } from './reduxStore';
 
 import theme from '../configs/material-theme';
-// import { registerServiceWorker } from '../pwa/registerSW';
-// import { addToHomeScreen } from '../pwa/addToHomeScreen';
+import { registerServiceWorker } from '../pwa/registerSW';
+import { addToHomeScreen } from '../pwa/addToHomeScreen';
 
 import AppView from './views/AppView/AppViewContainer';
 
@@ -19,19 +19,19 @@ const store = configureStore();
 function renderDom() {
   ReactDOM.render(
     <Provider store={store}>
-      <HashRouter>
+      <Router>
         <MuiThemeProvider theme={theme}>
           <AppView />
         </MuiThemeProvider>
-      </HashRouter>
+      </Router>
     </Provider>,
     document.getElementById('main'),
   );
 }
 
 function run() {
-  // registerServiceWorker();
-  // addToHomeScreen();
+  registerServiceWorker();
+  addToHomeScreen();
   renderDom();
 }
 

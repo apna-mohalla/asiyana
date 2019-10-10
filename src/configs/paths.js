@@ -1,10 +1,10 @@
-const baseUrl = window.location.hostname.includes('localhost') ? '/' : 'https://apna-mohalla.github.io/asiyana/';
+const baseUrl = window.location.hostname.includes('localhost') ? '/build/' : '/asiyana/';
 
 const paths = {
   baseUrl,
   signInPath: baseUrl,
-  signUpPath: `${baseUrl}signUp`,
-  forgotPasswordPath: `${baseUrl}forgotPassword`,
+  signUpPath: `/signUp`,
+  forgotPasswordPath: `/forgotPassword`,
 };
 
 export default paths;
