@@ -1,6 +1,6 @@
 import { labels } from 'configs/translations';
 import { messageTypes } from 'configs/snackBar';
-import { updateNotification } from 'js/app/appActions';
+import { updateNotification } from 'js/app/notificationActions';
 
 /* eslint-disable no-unused-vars */
 export const signUp = ({ email, password }) => (dispatch) => {

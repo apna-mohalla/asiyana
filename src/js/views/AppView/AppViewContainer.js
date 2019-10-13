@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { logout } from 'views/SignIn/SignInActions';
-import { updateNotification } from 'js/app/appActions';
+import { checkAuthentication } from 'js/app/appActions';
+import { updateNotification } from 'js/app/notificationActions';
 import AppViewComponent from './AppViewComponent';
 
 const mapStateToProps = (state) => ({
@@ -11,6 +12,7 @@ const mapStateToProps = (state) => ({
 const dispatchActionToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   updateNotification: (message = '', messageType = '') => dispatch(updateNotification(message, messageType)),
+  checkAuthentication: () => dispatch(checkAuthentication()),
 });
 
 export default connect(

@@ -8,7 +8,6 @@ const mapStateToProps = (state) => ({
 
 const dispatchActionToProps = (dispatch) => ({
   login: (userid, password) => dispatch(authenticateUser({ userid, password })),
-  updateSignInNotification: (messageType, message) => dispatch(updateSignInNotification({ messageType, message })),
 });
 
 export default connect(

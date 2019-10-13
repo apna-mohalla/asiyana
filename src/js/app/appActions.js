@@ -1,9 +1,5 @@
-import actionTypes from 'configs/actionTypes';
+import { updateLoginCredentials, logoutAction } from 'views/SignIn/SignInActions';
 
-export const updateNotification = (message, messageType) => ({
-  type: actionTypes.UPDATE_SNACKBAR,
-  payload: {
-    message,
-    messageType,
-  },
-});
+/* eslint-disable implicit-arrow-linebreak */
+export const checkAuthentication = () => (dispatch) =>
+  auth.onAuthStateChanged((user) => (user ? dispatch(updateLoginCredentials()) : dispatch(logoutAction())));
