@@ -2,34 +2,35 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-// import Typography from '@material-ui/core/Typography';
 
 import paths from 'configs/paths';
-
 import { labels, placeholder } from 'configs/translations';
 import AuthenticationHeader from '../Unauthorised/AuthenticationHeader';
 
-const SignUpComponent = () => {
-  const [message] = useState('');
+const SignUpComponent = (props) => {
+  const { signUp } = props;
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState('');
   const [isPhoneInValid, setPhoneValid] = useState(false);
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState('');
   const [isPasswordMismatch, setisPasswordMismatch] = useState(false);
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
-  const [apartmentKey, setApartmentKey] = useState();
-  const [blockName, setBlockName] = useState();
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [apartmentKey, setApartmentKey] = useState('');
+  const [blockName, setBlockName] = useState('');
   const [flatNumber, setFlatNumber] = useState();
-
-  const messageClass = '';
-  //   const messageClass = props.signUp.message === '' ? '' : 'notification';
 
   const register = (e) => {
     e.preventDefault();
-    setisPasswordMismatch(password === confirmPassword);
-    setPhoneValid(isPhoneInValid.length !== 10);
+    if (password.toString() !== confirmPassword.toString()) {
+      setisPasswordMismatch(true);
+      return;
+    }
+    if (phone.length < 10) {
+      setPhoneValid(true);
+      return;
+    }
+    signUp(email, password);
   };
 
   return (
@@ -38,10 +39,6 @@ const SignUpComponent = () => {
       <section className="authentication-form-container">
         <form className="authentication-form form" onSubmit={register}>
           <h1 className="title">{labels.signUp}</h1>
-          <div className="error">{message}</div>
-          <Paper elevation={1} className={messageClass}>
-            {/* <Typography component="p">{props.signUp.message}</Typography> */}
-          </Paper>
           <TextField
             className="input-field"
             fullWidth
@@ -137,6 +134,10 @@ const SignUpComponent = () => {
       </section>
     </article>
   );
+};
+
+SignUpComponent.propTypes = {
+  signUp: PropTypes.func,
 };
 
 export default SignUpComponent;

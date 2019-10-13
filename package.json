@@ -34,14 +34,18 @@
   "homepage": "https://github.com/apna-mohalla/frontend#readme",
   "dependencies": {
     "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.5.1",
+    "add": "^2.0.6",
     "axios": "^0.19.0",
+    "material-ui-icons": "^1.0.0-beta.36",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yarn": "^1.19.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

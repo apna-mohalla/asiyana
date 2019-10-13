@@ -2,9 +2,11 @@
   /* Colors */
   --body-background: #efefef;
   --primary-color: #31b094;
+  --success-color: #43a047;
   --error-color: #c00;
   --white: #fff;
   --muted-text: #7e807f;
+  --warning-color: #ffa000;
 
   /* Spacers */
   --app-spacer: 20px;

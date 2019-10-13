@@ -62,3 +62,27 @@ div.input-field {
 .material-icons {
   cursor: pointer;
 }
+
+.error {
+  .MuiSnackbarContent-root {
+    background: var(--error-color);
+  }
+}
+
+.MuiSnackbarContent-root {
+  .error & {
+    background: var(--error-color);
+  }
+
+  .warning & {
+    background: var(--warning-color);
+  }
+
+  .success & {
+    background: var(--success-color);
+  }
+
+  .info & {
+    background: var(--primary-color);
+  }
+}

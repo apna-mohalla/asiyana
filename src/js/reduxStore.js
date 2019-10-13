@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { applyMiddleware, compose, createStore } from 'redux';
 
 // Reducers
-import reducers from './reducers/rootReducers';
+import reducers from './app/rootReducers';
 
 export function configureStore() {
   const middleware = applyMiddleware(thunk);

@@ -7,7 +7,12 @@
   },
   "settings": {
     "import/resolver": {
-      "alias": [["configs", "./src/configs"], ["views", "./src/js/views"]]
+      "alias": [
+        ["configs", "./src/configs"],
+        ["views", "./src/js/views"],
+        ["shared", "./src/js/shared"],
+        ["js", "./src/js"]
+      ]
     }
   },
   "rules": {

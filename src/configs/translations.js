@@ -4,12 +4,14 @@ export const labels = {
   forgotPassword: 'Forgot Password',
   home: 'Home',
   loginFailure: 'Either username or password is wrong',
+  logout: 'Logout',
   mohallaDweller: 'Already a mohalla dweller',
   newToMohalla: 'New to mohalla',
   retrievePassword: 'Retrieve Password',
   signIn: 'Sign In',
   signOut: 'Sign Out',
   signUp: 'Sign Up',
+  signUpSuccessfull: 'You are successfully signedup.',
   someFieldsAreIncorrect: 'Some fields are incorrect. Please correct and try again',
 };
 

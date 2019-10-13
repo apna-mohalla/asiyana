@@ -15,7 +15,9 @@ const config = {
     extensions: ['.js', '.json', '.jsx'],
     alias: {
       configs: path.resolve(__dirname, 'src/configs'),
-      views: path.resolve(__dirname, 'src/js/views/'),
+      views: path.resolve(__dirname, 'src/js/views'),
+      shared: path.resolve(__dirname, 'src/js/shared'),
+      js: path.resolve(__dirname, 'src/js'),
     },
   },
   module: {

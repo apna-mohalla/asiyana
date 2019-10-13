@@ -16,7 +16,7 @@ const SignInComponent = (props) => {
 
   const signInButtonClicked = (e) => {
     e.preventDefault();
-    console.log(e);
+    props.login(userid, password);
   };
 
   return (
@@ -62,6 +62,7 @@ const SignInComponent = (props) => {
 
 SignInComponent.propTypes = {
   message: PropTypes.string,
+  login: PropTypes.func,
 };
 
 export default SignInComponent;
