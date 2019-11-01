@@ -1,0 +1,44 @@
+.dashboard-header {
+  background: var(--primary-color);
+  padding: var(--app-spacer);
+}
+
+.drawer {
+  padding: var(--app-spacer);
+}
+
+.dashboard-header {
+  color: var(--white);
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.drawer-menu-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 250px;
+
+  header {
+    align-items: center;
+    background: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    display: flex;
+    padding: 10px 10px 11px 20px;
+
+    h2 {
+      color: #fff;
+      margin: 0 0 0 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .nav-links {
+    flex: 1;
+  }
+}

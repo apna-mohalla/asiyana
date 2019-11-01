@@ -46,7 +46,7 @@ const ForgotPasswordComponent = () => {
             type="number"
             value={phone}
           />
-          <Button type="submit" color="primary" variant="contained" className="topSpacer">
+          <Button type="submit" color="primary" variant="contained" className="top-spacer">
             {labels.retrievePassword}
           </Button>
         </form>

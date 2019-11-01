@@ -124,7 +124,7 @@ const SignUpComponent = (props) => {
             type="text"
             value={flatNumber}
           />
-          <Button type="submit" color="primary" variant="contained" className="topSpacer">
+          <Button type="submit" color="primary" variant="contained" className="top-spacer">
             {labels.signUp}
           </Button>
         </form>

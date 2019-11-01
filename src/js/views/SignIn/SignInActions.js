@@ -2,8 +2,9 @@ import actionTypes from 'configs/actionTypes';
 import { messageTypes } from 'configs/snackBar';
 import { updateNotification } from 'js/app/notificationActions';
 
-export const updateLoginCredentials = () => ({
+export const updateLoginCredentials = (payload) => ({
   type: actionTypes.AUTHENTICATE_SUCCESSFUL,
+  payload,
 });
 
 export const logoutAction = () => ({
@@ -15,13 +16,17 @@ export const authenticateUser = ({ userid, password }) => (dispatch) =>
   auth
     .signInWithEmailAndPassword(userid, password)
     .then((cred) => {
-      console.log(cred.user);
-      dispatch(updateLoginCredentials());
+      dispatch(
+        updateLoginCredentials({
+          displayName: cred.user.displayName,
+          email: cred.user.email,
+        }),
+      );
     })
-    .catch((err) => updateNotification(err.message, messageTypes.error));
+    .catch((err) => dispatch(updateNotification(err.message, messageTypes.error)));
 
 export const logout = () => (dispatch) =>
   auth
     .signOut()
     .then(() => dispatch(logoutAction()))
-    .catch((err) => updateNotification(err.message, messageTypes.error));
+    .catch((err) => dispatch(updateNotification(err.message, messageTypes.error)));

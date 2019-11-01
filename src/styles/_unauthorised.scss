@@ -17,7 +17,7 @@ $logo-container-text: var(--white);
   justify-content: center;
   min-height: $authentication-header-height;
 
-  .icon-home_logo {
+  .icon-home-logo {
     margin-top: 20px;
   }
 }
@@ -36,8 +36,8 @@ $logo-container-text: var(--white);
   max-width: 440px;
   text-align: center;
   width: 100%;
-}
 
-.authentication-form .topSpacer {
-  margin-top: var(--app-spacer);
+  .top-spacer {
+    margin-top: var(--app-spacer);
+  }
 }

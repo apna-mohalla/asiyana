@@ -46,7 +46,7 @@ const SignInComponent = (props) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button type="submit" color="primary" variant="contained" className="topSpacer">
+          <Button type="submit" color="primary" variant="contained" className="top-spacer">
             {labels.signIn}
           </Button>
         </form>

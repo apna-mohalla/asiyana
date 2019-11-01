@@ -1,5 +1,26 @@
 import { updateLoginCredentials, logoutAction } from 'views/SignIn/SignInActions';
+import actionTypes from 'configs/actionTypes';
+import { setPromiseState } from '../utils/setPromise';
 
-/* eslint-disable implicit-arrow-linebreak */
-export const checkAuthentication = () => (dispatch) =>
-  auth.onAuthStateChanged((user) => (user ? dispatch(updateLoginCredentials()) : dispatch(logoutAction())));
+const updateAuthenticationStatus = (isPending, isSuccessfull, isFailure) => ({
+  type: actionTypes.UPDATE_AUTHENTICATION,
+  payload: setPromiseState(isPending, isSuccessfull, isFailure),
+});
+
+export const checkAuthentication = () => (dispatch) => {
+  dispatch(updateAuthenticationStatus(true, false, false));
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      dispatch(updateAuthenticationStatus(false, true, false));
+      dispatch(
+        updateLoginCredentials({
+          displayName: user.displayName,
+          email: user.email,
+        }),
+      );
+    } else {
+      dispatch(updateAuthenticationStatus(false, false, true));
+      dispatch(logoutAction());
+    }
+  });
+};

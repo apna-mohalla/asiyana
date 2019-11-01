@@ -8,7 +8,7 @@ export const signUp = ({ email, password }) => (dispatch) => {
   const messageType = messageTypes.success;
   return auth
     .createUserWithEmailAndPassword(email, password)
-    .then((cred) => dispatch(updateNotification({ message, messageType })))
+    .then(() => dispatch(updateNotification({ message, messageType })))
     .catch((err) => {
       dispatch(updateNotification({ message: err.message, messageType: messageTypes.error }));
     });

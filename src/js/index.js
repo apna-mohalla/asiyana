@@ -4,13 +4,12 @@ import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
+import theme from 'configs/material-theme';
 import { configureStore } from './reduxStore';
-
-import theme from '../configs/material-theme';
 import { registerServiceWorker } from '../pwa/registerSW';
 import { addToHomeScreen } from '../pwa/addToHomeScreen';
 
-import AppView from './views/AppView/AppViewContainer';
+import AppViewContainer from './views/AppView/AppViewContainer';
 
 import '../styles/style.scss';
 
@@ -21,7 +20,7 @@ function renderDom() {
     <Provider store={store}>
       <Router>
         <MuiThemeProvider theme={theme}>
-          <AppView />
+          <AppViewContainer />
         </MuiThemeProvider>
       </Router>
     </Provider>,

@@ -1,6 +1,8 @@
+// sass-lint:disable indentation
+
 $base-font-url: '/';
 // Comment the below line when running local.
-$base-font-url: '/asiyana/';
+// $base-font-url: '/asiyana/';
 
 @font-face {
   font-family: 'icomoon';
@@ -28,7 +30,7 @@ $base-font-url: '/asiyana/';
   text-transform: none;
 }
 
-.icon-home_logo {
+.icon-home-logo {
   &::before {
     content: '\e900';
   }
