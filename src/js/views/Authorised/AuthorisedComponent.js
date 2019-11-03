@@ -12,8 +12,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-import { labels } from 'configs/translations';
-
+import { labels, dashboardText } from 'configs/translations';
+import paths from 'configs/paths';
 import DashboardComponent from '../../component/Dashboard/DashboardComponent';
 import ServicesComponent from '../../component/Services/ServicesComponent';
 
@@ -37,7 +37,7 @@ const AuthorisedComponent = (props) => {
                   <ListItemIcon>
                     <i className="icon-home-logo" />
                   </ListItemIcon>
-                  <Link to="/">
+                  <Link to={paths.baseUrl}>
                     <ListItemText primary={labels.home} />
                   </Link>
                 </ListItem>
@@ -45,8 +45,8 @@ const AuthorisedComponent = (props) => {
                   <ListItemIcon>
                     <SettingsIcon />
                   </ListItemIcon>
-                  <Link to="/services">
-                    <ListItemText primary="services" />
+                  <Link to={paths.services}>
+                    <ListItemText primary={dashboardText.services} />
                   </Link>
                 </ListItem>
               </List>
@@ -62,17 +62,17 @@ const AuthorisedComponent = (props) => {
           </Drawer>
           <nav>
             <i className="material-icons" onClick={() => setIsDrawerOpen(true)} onKeyDown={() => setIsDrawerOpen(true)}>
-              menu
+              {dashboardText.menu}
             </i>
-            <i className="material-icons">notifications</i>
+            <i className="material-icons">{dashboardText.notification}</i>
           </nav>
         </div>
         <div className="dashboard-content">
           <Switch>
-            <Route path="/" exact>
+            <Route path={paths.baseUrl} exact>
               <DashboardComponent />
             </Route>
-            <Route path="/services">
+            <Route path={paths.services}>
               <ServicesComponent />
             </Route>
           </Switch>

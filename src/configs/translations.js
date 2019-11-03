@@ -15,6 +15,12 @@ export const labels = {
   someFieldsAreIncorrect: 'Some fields are incorrect. Please correct and try again',
 };
 
+export const dashboardText = {
+  services: 'services',
+  menu: 'menu',
+  notification: 'notification',
+};
+
 export const placeholder = {
   apartmentKey: 'APARTMENT KEY',
   blockName: 'BLOCK NAME',
