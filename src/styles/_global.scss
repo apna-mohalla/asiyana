@@ -5,7 +5,10 @@
 
 html,
 body,
-.main {
+.main,
+.cover-page,
+.dashboard-container,
+.dashboard-content {
   height: 100%;
 }
 
@@ -21,6 +24,7 @@ body {
 
 a {
   color: var(--primary-color);
+  text-decoration: none;
 }
 
 .title {

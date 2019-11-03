@@ -31,6 +31,7 @@
 
     h2 {
       color: #fff;
+      font-weight: 100;
       margin: 0 0 0 10px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -41,4 +42,17 @@
   .nav-links {
     flex: 1;
   }
+}
+
+.nav-links-footer {
+  background: #e6e6e6;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-content {
+  padding: 0 10px 0 15px;
 }

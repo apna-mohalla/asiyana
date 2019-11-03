@@ -23,10 +23,15 @@ export const authenticateUser = ({ userid, password }) => (dispatch) =>
         }),
       );
     })
-    .catch((err) => dispatch(updateNotification(err.message, messageTypes.error)));
+    .catch((err) =>
+      // Clear all data
+      dispatch(updateNotification(err.message, messageTypes.error)));
 
 export const logout = () => (dispatch) =>
   auth
     .signOut()
     .then(() => dispatch(logoutAction()))
-    .catch((err) => dispatch(updateNotification(err.message, messageTypes.error)));
+    .catch((err) => dispatch(updateNotification(err.message, messageTypes.error)))
+    .finally(() => {
+      // clear all data
+    });
