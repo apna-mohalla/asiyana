@@ -1,4 +1,4 @@
-const baseUrl = window.location.hostname.includes('localhost') ? '/' : '/asiyana/';
+const baseUrl = '/';
 
 const paths = {
   baseUrl,
