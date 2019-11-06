@@ -28,7 +28,7 @@ const AppViewComponent = (props) => {
         open={message !== ''}
         message={message}
         messageId="signupmessage"
-        handleClose={() => props.updateNotification('', '')}
+        handleClose={() => props.updateNotification()}
         messageType={messageType}
       />
       {getComponent()}

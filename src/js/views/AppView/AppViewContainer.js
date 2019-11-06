@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const dispatchActionToProps = (dispatch) => ({
-  updateNotification: (message = '', messageType = '') => dispatch(updateNotification(message, messageType)),
+  updateNotification: (message, messageType) => dispatch(updateNotification({ message, messageType })),
   checkAuthentication: () => dispatch(checkAuthentication()),
 });
 

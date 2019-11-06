@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  HashRouter as Router, Switch, Route, Link,
-} from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
 import Avatar from '@material-ui/core/Avatar';
@@ -11,6 +9,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsIcon from '@material-ui/icons/Settings';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { labels, dashboardText } from 'configs/translations';
 import paths from 'configs/paths';
@@ -21,6 +20,10 @@ const AuthorisedComponent = (props) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [name] = useState(props.name || null);
   const [imageSrc] = useState(props.imageSrc || null);
+
+  if (window.location.hash === paths.signUpPath) {
+    window.location.hash = '/';
+  }
 
   return (
     <Router>
@@ -64,7 +67,7 @@ const AuthorisedComponent = (props) => {
             <i className="material-icons" onClick={() => setIsDrawerOpen(true)} onKeyDown={() => setIsDrawerOpen(true)}>
               {dashboardText.menu}
             </i>
-            <i className="material-icons">{dashboardText.notification}</i>
+            <NotificationsIcon />
           </nav>
         </div>
         <div className="dashboard-content">

@@ -19,7 +19,20 @@ const SignUpComponent = (props) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [apartmentKey, setApartmentKey] = useState('');
   const [blockName, setBlockName] = useState('');
-  const [flatNumber, setFlatNumber] = useState();
+  const [flatNumber, setFlatNumber] = useState('');
+
+  const resetForm = () => {
+    setName('');
+    setPhone('');
+    setPhoneValid(false);
+    setEmail('');
+    setisPasswordMismatch(false);
+    setPassword('');
+    setConfirmPassword('');
+    setApartmentKey('');
+    setBlockName('');
+    setFlatNumber('');
+  };
 
   const register = (e) => {
     e.preventDefault();
@@ -31,7 +44,8 @@ const SignUpComponent = (props) => {
       setPhoneValid(true);
       return;
     }
-    signUp(email, password);
+    signUp(email, password, name, phone, blockName, flatNumber);
+    resetForm();
   };
 
   return (
@@ -124,6 +138,15 @@ const SignUpComponent = (props) => {
             type="text"
             value={flatNumber}
           />
+          <Button
+            type="reset"
+            color="secondary"
+            variant="contained"
+            className="top-spacer right-spacer"
+            onClick={resetForm}
+          >
+            {labels.reset}
+          </Button>
           <Button type="submit" color="primary" variant="contained" className="top-spacer">
             {labels.signUp}
           </Button>

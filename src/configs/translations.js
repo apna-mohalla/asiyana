@@ -11,12 +11,13 @@ export const labels = {
   signIn: 'Sign In',
   signOut: 'Sign Out',
   signUp: 'Sign Up',
+  reset: 'Reset Fields',
   signUpSuccessfull: 'You are successfully signedup.',
   someFieldsAreIncorrect: 'Some fields are incorrect. Please correct and try again',
 };
 
 export const dashboardText = {
-  services: 'services',
+  services: 'Services',
   menu: 'menu',
   notification: 'notification',
 };

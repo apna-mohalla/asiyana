@@ -1,6 +1,6 @@
 import actionTypes from 'configs/actionTypes';
 
-export const updateNotification = (message, messageType) => ({
+export const updateNotification = ({ message = '', messageType = '' }) => ({
   type: actionTypes.UPDATE_SNACKBAR,
   payload: {
     message,

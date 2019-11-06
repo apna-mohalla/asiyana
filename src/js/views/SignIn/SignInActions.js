@@ -12,26 +12,35 @@ export const logoutAction = () => ({
 });
 
 /* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable arrow-body-style */
 export const authenticateUser = ({ userid, password }) => (dispatch) =>
   auth
     .signInWithEmailAndPassword(userid, password)
     .then((cred) => {
-      dispatch(
-        updateLoginCredentials({
-          displayName: cred.user.displayName,
-          email: cred.user.email,
-        }),
-      );
+      return db
+        .collection('users')
+        .doc(cred.user.uid)
+        .get()
+        .then((doc) => {
+          const { displayName, blockName, flatNumber, phoneNumber } = doc.data();
+          dispatch(
+            updateLoginCredentials({
+              displayName,
+              email: cred.user.email,
+              blockName,
+              flatNumber,
+              phoneNumber,
+            }),
+          );
+        });
     })
-    .catch((err) =>
-      // Clear all data
-      dispatch(updateNotification(err.message, messageTypes.error)));
+    .catch((err) => dispatch(updateNotification({ message: err.message, messageType: messageTypes.error })));
 
 export const logout = () => (dispatch) =>
   auth
     .signOut()
     .then(() => dispatch(logoutAction()))
-    .catch((err) => dispatch(updateNotification(err.message, messageTypes.error)))
+    .catch((err) => dispatch(updateNotification({ message: err.message, messageType: messageTypes.error })))
     .finally(() => {
       // clear all data
     });

@@ -16,6 +16,7 @@
     }
   },
   "rules": {
+    "object-curly-newline": 0,
     // The rules for react
     "react/jsx-quotes": 0,
     "react/require-default-props": 0,

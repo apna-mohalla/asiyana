@@ -6,9 +6,10 @@ const isPushNotificationSupported = 'PushManager' in window;
 
 export const registerServiceWorker = function() {
   if (window.location.hostname === 'localhost') return;
-  
+  const { hostname, pathname } = window.location;
+
   if (isServiceWorkerSupported && isPushNotificationSupported) {
-    navigator.serviceWorker.register(`${paths.baseUrl}sw.js`).then((sw) => {
+    navigator.serviceWorker.register(`${hostname}${pathname}sw.js`).then((sw) => {
       requestPushNotification();
       subscribePushNotification(sw);
       saveSubscriptionToLocalStorage(sw);

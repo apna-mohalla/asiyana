@@ -1,6 +1,7 @@
 const baseUrl = '/';
 
 const paths = {
+  serviceWorkerPath: `${baseUrl}/asiyana/`,
   baseUrl,
   signInPath: baseUrl,
   signUpPath: `${baseUrl}signUp`,

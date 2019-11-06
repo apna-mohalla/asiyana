@@ -1,4 +1,4 @@
-import { updateLoginCredentials, logoutAction } from 'views/SignIn/SignInActions';
+import { logoutAction } from 'views/SignIn/SignInActions';
 import actionTypes from 'configs/actionTypes';
 import { setPromiseState } from '../utils/setPromise';
 
@@ -12,12 +12,6 @@ export const checkAuthentication = () => (dispatch) => {
   auth.onAuthStateChanged((user) => {
     if (user) {
       dispatch(updateAuthenticationStatus(false, true, false));
-      dispatch(
-        updateLoginCredentials({
-          displayName: user.displayName,
-          email: user.email,
-        }),
-      );
     } else {
       dispatch(updateAuthenticationStatus(false, false, true));
       dispatch(logoutAction());
