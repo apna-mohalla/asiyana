@@ -1,4 +1,4 @@
-const version = 9;
+const version = 10;
 // Use this function if we require to add functionality.
 // self.addEventListener('notificationclose', (e) => {
 //   // const { notification } = e;
